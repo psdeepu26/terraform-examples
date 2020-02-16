@@ -71,3 +71,11 @@ resource "aws_security_group" "instance1-sg" {
     Name = "instance1-sg-80-22"
   }
 }
+
+output "instance_pub_ip" {
+  value = "${aws_instance.instance1.public_ip}"
+}
+
+output "sg_id" {
+  value = "${aws_security_group.instance1-sg.id}"
+}
