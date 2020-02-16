@@ -30,9 +30,15 @@ resource "aws_security_group" "SingleEC2-WebServer-Ingress-SG" {
   vpc_id      = "vpc-0265410fe7bc1fe95"
 
   ingress {
-    # TLS (change to whatever ports you need)
     from_port   = 80
     to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["103.15.250.0/24"]
+  }
+
+  ingress {
+    from_port   = 22
+    to_port     = 22
     protocol    = "tcp"
     cidr_blocks = ["103.15.250.0/24"]
   }
